@@ -180,9 +180,7 @@ int main(int argc, char * argv[]) {
     filename = argv[2];
 
     read_bits(filename, &matrix, 4096, 3072);
-    cout<<"bella1"<<endl;
     printMatrix(&matrix);
-    cout<<"bella2"<<endl;
     }
   if (!strcmp(argv[1], "-m"))
     {
@@ -203,8 +201,8 @@ int main(int argc, char * argv[]) {
           continue;
           }
 
-        if (fileName.find("_t_") ==std::string::npos ||
-            fileName.find(".raw12") ==std::string::npos )
+        if (fileName.find("_t_") == std::string::npos ||
+            fileName.find(".raw12") == std::string::npos )
           {
           continue;
           }
@@ -214,6 +212,7 @@ int main(int argc, char * argv[]) {
         int position2 = fileName.find("_n");
         cout<<"Bello "<<fileName.substr(position1+3)<<" "<<fileName.substr(position2)<<endl;
         double ExpTime = stod(fileName.substr(position1+3,position2));
+        vettoreDeMErde.push_back(ExpTime);
         std::vector<double>::iterator it = std::find(ExpTimeVector.begin(), ExpTimeVector.end(), ExpTime);
         if (it != ExpTimeVector.end())
           {
